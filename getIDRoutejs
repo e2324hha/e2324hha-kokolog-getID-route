@@ -11,12 +11,6 @@ liff.init({ liffId: "2006463532-kZ6VNRyx" }) // 正しい記述
     }
     })
     .then(profile => {
-        // ここではリッチメニューのIDを取得する代わりに、リッチメニューの状態を決定する処理を追加
-        const userId = profile.userId;
-        const mode = "route";
-        navigateToUserList(mode);
-    })
-    .then(profile => {
         if (!profile) return; // プロフィールが取得できなかった場合は処理しない
         const profileContainer = document.getElementById('profile');
         if (profileContainer) {
@@ -30,7 +24,7 @@ liff.init({ liffId: "2006463532-kZ6VNRyx" }) // 正しい記述
 
         console.log(profile);
         const userId = profile.userId;  // プロフィールからユーザーIDを取得
-        const mode = profile.displayName;  // プロフィールからユーザー名を取得
+        const mode = "route";
         
         // 異なるパラメータをURLに追加
         const url = `https://example.com/samePage?userId=${userId}&mode=${mode}`;
